@@ -29,21 +29,78 @@
                 <a class="dropdown-item" href="#">Matthews</a>
                 <a class="dropdown-item" href="#">Plaza Midwood</a>
             </div>
+            
+            </div>
         </div>
     </div>
-</div>
+
+    <div class = 'row'>
+     <div class = 'col-sm-12'>
+        <button type = 'button' id = 'apibutton' class = 'btn btn-primary'>API Check</button>
+     </div>
+    </div>
+
+    <div class = 'row'>
+        <div class = 'col-sm-12'>
+          <div id = 'show-results'></div>
+        </div>
+    </div>
 
 
 
 
-</div>
-
-    <script type='text/javascript'>
         
+</div>
 
+<script type='text/javascript'>
+        
+        var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=303&entity_type=city&q=pub&count=10&cuisines=american"
+
+    document.getElementById('apibutton').addEventListener('click', zomatoAPI)
+    function zomatoAPI(event){
+        $.ajax({  
+    url: queryURL,
+    dataType: 'json',
+    async: true,
+    beforeSend: function(xhr){xhr.setRequestHeader('user-key', 
+    'c837c692050384b3446ac7955ad2641b');},  // This inserts the api key into the HTTP header
+    success: function(response){
+    console.log(response.restaurants[0].restaurant) 
+    console.log(response.restaurants[0].restaurant.average_cost_for_two) 
+    console.log(response.restaurants[0].restaurant.cuisines) 
+
+    let restaurants = response.restaurants
+
+    for (var i = 0; i < restaurants.length; i++){
+        let results = restaurants[i].restaurant
+        let showDiv = $('<div class>')
+        let averagefor2 = $('<p>').text('Average for two: ' + results.average_cost_for_two)
+        let cuisines = $('<p>').text('Cuisines: ' + results.cuisines)
+        let location = $('<p>').text('Address: ' + results.location.address)
+        let showImage = $('<img>')
+        let storeImage = results.photos_url
+
+        $(showImage).append(storeImage)
+        $(showDiv).append(averagefor2, cuisines, location,showImage)
+        $('#show-results').prepend(showDiv)
+
+        }
+      } 
+    })
+  }
 
     
-    </script>
+</script>
     
 </body>
 </html>
+
+<!-- $.ajax({
+    method: "GET",
+    crossDomain: true,
+    url: queryURL,
+    dataType: "json",
+    async: true,
+    headers: {
+    "user-key": "c837c692050384b3446ac7955ad2641b"
+    }, -->
