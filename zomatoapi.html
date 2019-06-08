@@ -19,20 +19,29 @@
 <div class = 'container'>
 
 <div class = 'row'>
-    <div class = 'col-sm-12'>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                    City
-                </button>
+    <div class = 'col-sm-6'>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">City</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Charlotte</a>
                 <a class="dropdown-item" href="#">Matthews</a>
                 <a class="dropdown-item" href="#">Plaza Midwood</a>
-            </div>
-            
-            </div>
+            </div>           
         </div>
     </div>
+    
+
+    <div class = 'col-sm-6'>
+      <form>
+          <div class = 'form-group'>
+              <label for='enteraddress'>Enter Address or Zip Code</label>
+              <input class = 'form-control' id = 'enterAddress' placeholder='Enter Address or Zip Code'>
+          </div>
+          <button type = 'submit' id='durationSubmit' class = 'btn btn-primary'>Submit</button>
+      </form>
+    </div>
+
+</div>
 
     <div class = 'row'>
      <div class = 'col-sm-6'>
@@ -99,9 +108,20 @@
     })
   }
 
-  var queryURL2 = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=|7916+Causeway+Dr+Charlotte&destinations=3120+N+Davidson+Street+Charlotte&key=AIzaSyAwprJVRaKbbUc19bvkqHN_8ICjtUSVAJg'
+  durationArr = []
 
-  $('#distanceButton').on('click', function(event){
+  // making a function to call back duration into an array.
+
+  $('#durationSubmit').on('click', function(event){
+
+    event.preventDefault()
+
+    let homeAddress = $('#enterAddress').val().trim()
+    console.log(homeAddress)
+
+    var queryURL2 = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=|' + homeAddress + 
+                    '&destinations=3120+N+Davidson+Street+Charlotte&key=AIzaSyAwprJVRaKbbUc19bvkqHN_8ICjtUSVAJg'
+
     $.ajax({
     url: queryURL2,
     dataType: 'json',
@@ -123,6 +143,10 @@
         
         $(distDiv).append(originDiv, destDiv, duraDiv)
         $('#show-duration').append(distDiv)
+
+        durationArr.push(duration)
+        console.log(durationArr)
+        
     })
   })
 
