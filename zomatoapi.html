@@ -19,19 +19,27 @@
 <div class = 'container'>
 
 <div class = 'row'>
-    <div class = 'col-sm-6'>
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">City</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Charlotte</a>
-                <a class="dropdown-item" href="#">Matthews</a>
-                <a class="dropdown-item" href="#">Plaza Midwood</a>
-            </div>           
+  <div class = 'col-sm-4'>
+    <form>
+        <div class = 'form-group'>
+            <label for='enterCityID'>Enter City ID</label>
+            <input class = 'form-control' id = 'cityIDEntry' placeholder='Enter Address or Zip Code'>
         </div>
-    </div>
-    
+    </form>
+  </div>
 
-    <div class = 'col-sm-6'>
+  <div class = 'col-sm-4'>
+    <form>
+        <div class = 'form-group'>
+            <label for='enterCuisine'>Enter Cuisine</label>
+            <input class = 'form-control' id = 'cuisineEntry' placeholder='Enter Type of Food'>
+        </div>
+        <button type = 'submit' id='cuisineSubmit' class = 'btn btn-primary'>Submit</button>
+    </form>
+  </div>
+   </div>
+
+    <div class = 'col-sm-4'>
       <form>
           <div class = 'form-group'>
               <label for='enteraddress'>Enter Address or Zip Code</label>
@@ -41,72 +49,131 @@
       </form>
     </div>
 
-</div>
-
-    <div class = 'row'>
+    <!-- <div class = 'row'>
      <div class = 'col-sm-6'>
         <button type = 'button' id = 'apibutton' class = 'btn btn-primary'>API Check</button>
      </div>
      <div class = 'col-sm-6'>
         <button type = 'button' id = 'distanceButton' class = 'btn btn-primary'>Distance</button>
      </div>
-    </div>
+    </div> -->
 
     <div class = 'row'>
-        <div class = 'col-sm-6'>
+        <div class = 'col-sm-4'>
           <div id = 'show-results'></div>
         </div>
-        <div class = 'col-sm-6'>
+        <div class = 'col-sm-4'>
           <div id = 'show-duration'></div>
+        </div>
+        <div class = 'col-sm-4'>
+          <div id = 'show-geolocation'></div>
         </div>
     </div>
 
-
-
-
-
-
-        
 </div>
 
 <script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
 <script type='text/javascript'>
 
-        
-        var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=303&entity_type=city&q=pub&count=10&cuisines=american"
+var x = document.getElementById('show-geolocation');
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+       x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
 
-    document.getElementById('apibutton').addEventListener('click', zomatoAPI)
-    function zomatoAPI(event){
-        $.ajax({  
-    url: queryURL,
-    dataType: 'json',
-    async: true,
-    beforeSend: function(xhr){xhr.setRequestHeader('user-key', 
-    'c837c692050384b3446ac7955ad2641b');},  // This inserts the api key into the HTTP header
-    success: function(response){
-    console.log(response.restaurants[0].restaurant) 
-    console.log(response.restaurants[0].restaurant.average_cost_for_two) 
-    console.log(response.restaurants[0].restaurant.cuisines) 
+var homeAddress = null
 
-    let restaurants = response.restaurants
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+       "<br>Longitude: " + position.coords.longitude;
+        var lat = position.coords.latitude
+        var long = position.coords.longitude
+        homeAddress = lat + ', ' + long
+        console.log(lat)
+        console.log(long)
+        console.log(position.coords.latitude, position.coords.longitude)
+        console.log(homeAddress)
+       }
 
-    for (var i = 0; i < restaurants.length; i++){
-        let results = restaurants[i].restaurant
-        let showDiv = $('<div class>')
-        let averagefor2 = $('<p>').text('Average for two: ' + results.average_cost_for_two)
-        let cuisines = $('<p>').text('Cuisines: ' + results.cuisines)
-        let location = $('<p>').text('Address: ' + results.location.address)
-        let showImage = $('<img>')
-        let storeImage = results.photos_url
+    // zomato_getCuisines(position.coords.latitude, position.coords.longitude, "")
 
-        $(showImage).append(storeImage)
-        $(showDiv).append(averagefor2, cuisines, location,showImage)
-        $('#show-results').prepend(showDiv)
 
+
+document.addEventListener('DOMContentLoaded', function(){
+  getLocation()
+})
+
+document.addEventListener('DOMContentLoaded', function(){ 
+  showPosition()
+})
+
+var arrRestaurants = []
+
+function zomato_getRestaurantsList(city, food) {
+
+event.preventDefault()
+
+let z_cityId = $('#cityIDEntry').val().trim()
+let cuisines = $('#cuisineEntry').val().trim()
+
+console.log(z_cityId)
+console.log(cuisines)
+
+let URL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + z_cityId + "&entity_type=city&count=5&cuisines=" + cuisines;
+
+$.ajax({
+    url: URL,
+    method: "GET",
+    headers: {
+        "user-key": "e920da7569c4f29f6b0175e74f21679f"
+    },
+
+    success: function (response) {
+
+        console.log(response)
+
+        for (var i = 0; i < response.restaurants.length; i++) {
+            arrRestaurants.push(new restaurant(
+                response.restaurants[i].restaurant.id,
+                response.restaurants[i].restaurant.name,
+                response.restaurants[i].restaurant.featured_image,
+                response.restaurants[i].restaurant.location.address,
+                response.restaurants[i].restaurant.location.city,
+                response.restaurants[i].restaurant.location.zipcode,
+                response.restaurants[i].restaurant.location.latitude,
+                response.restaurants[i].restaurant.location.longitude,
+                response.restaurants[i].restaurant.user_rating.aggregate_rating,
+                response.restaurants[i].restaurant.user_rating.rating_text,
+                response.restaurants[i].restaurant.average_cost_for_two,
+                response.restaurants[i].restaurant.price_range
+            ));
         }
-      } 
-    })
-  }
+
+        console.log("Here comes the restaurants")
+        console.log(arrRestaurants);
+    }
+})
+}
+
+function restaurant(id, name, photo_url, address, address_city, address_zipcode,lattitude, longitude, aggregate_rating, aggregate_rating_text, average_for2, price_range) {
+    this.id = id,
+    this.name = name,
+    this.photo_url = photo_url,
+    this.address = address,
+    this.address_city = address_city,
+    this.address_zipcode = address_zipcode
+    this.lattitude = lattitude,
+    this.longitude = longitude,
+    this.aggregate_rating = aggregate_rating,
+    this.aggregate_rating_text = aggregate_rating_text
+    this.average_for2 = average_for2,
+    this.price_range = price_range    
+}
+
+$('#cuisineSubmit').on('click', zomato_getRestaurantsList)
 
   durationArr = []
 
@@ -116,11 +183,17 @@
 
     event.preventDefault()
 
-    let homeAddress = $('#enterAddress').val().trim()
     console.log(homeAddress)
 
+    for(var i = 0; i < arrRestaurants.length; i++){
+      let restaurantlat = arrRestaurants[i].lattitude
+      let restaurantlong = arrRestaurants[i].longitude
+      let restaurantGeo = restaurantlat + ', ' + restaurantlong
+      console.log(restaurantGeo)
+
     var queryURL2 = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=|' + homeAddress + 
-                    '&destinations=3120+N+Davidson+Street+Charlotte&key=AIzaSyAwprJVRaKbbUc19bvkqHN_8ICjtUSVAJg'
+                    '&destinations=' + restaurantGeo + '&key=AIzaSyAwprJVRaKbbUc19bvkqHN_8ICjtUSVAJg'
+    
 
     $.ajax({
     url: queryURL2,
@@ -147,21 +220,48 @@
         durationArr.push(duration)
         console.log(durationArr)
         
-    })
+     })
+    }
   })
 
-    
+//       var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=303&entity_type=city&q=pub&count=10&cuisines=american"
+
+//   document.getElementById('apibutton').addEventListener('click', zomatoAPI)
+//   function zomatoAPI(event){
+//       $.ajax({  
+//   url: queryURL,
+//   dataType: 'json',
+//   async: true,
+//   beforeSend: function(xhr){xhr.setRequestHeader('user-key', 
+//   'c837c692050384b3446ac7955ad2641b');},  // This inserts the api key into the HTTP header
+//   success: function(response){
+//   console.log(response.restaurants[0].restaurant) 
+//   console.log(response.restaurants[0].restaurant.average_cost_for_two) 
+//   console.log(response.restaurants[0].restaurant.cuisines) 
+
+//   let restaurants = response.restaurants
+
+//   for (var i = 0; i < restaurants.length; i++){
+//       let results = restaurants[i].restaurant
+//       let showDiv = $('<div class>')
+//       let averagefor2 = $('<p>').text('Average for two: ' + results.average_cost_for_two)
+//       let cuisines = $('<p>').text('Cuisines: ' + results.cuisines)
+//       let location = $('<p>').text('Address: ' + results.location.address)
+//       let showImage = $('<img>')
+//       let storeImage = results.photos_url
+
+//       $(showImage).append(storeImage)
+//       $(showDiv).append(averagefor2, cuisines, location,showImage)
+//       $('#show-results').prepend(showDiv)
+
+//       }
+//     } 
+//   })
+// }
+
 </script>
     
 </body>
 </html>
 
-<!-- $.ajax({
-    method: "GET",
-    crossDomain: true,
-    url: queryURL,
-    dataType: "json",
-    async: true,
-    headers: {
-    "user-key": "c837c692050384b3446ac7955ad2641b"
-    }, -->
+
