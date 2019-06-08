@@ -105,8 +105,7 @@ $('#cuisineSubmit').on('click', zomato_getRestaurantsList)
 
 // creating loop of duration API we found for each restuarant result to get duration
 
-$('#durationSubmit').on('click', function(event){
-
+function getDurationTime(arr) {    
     event.preventDefault()
 
     console.log(homeAddress)
@@ -120,7 +119,6 @@ $('#durationSubmit').on('click', function(event){
     var queryURL2 = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=|' + homeAddress + 
                     '&destinations=' + restaurantGeo + '&key=AIzaSyAwprJVRaKbbUc19bvkqHN_8ICjtUSVAJg'
     
-
     $.ajax({
     url: queryURL2,
     dataType: 'json',
@@ -141,11 +139,9 @@ $('#durationSubmit').on('click', function(event){
         let duraDiv = $('<p>').text('Duration: ' + duration)
         
         $(distDiv).append(originDiv, destDiv, duraDiv)
-        $('#show-duration').append(distDiv)
-
-        durationArr.push(duration)
-        console.log(durationArr)
-        
+        $('#show-duration').append(distDiv)        
      })
     }
-  })
+  }
+
+  $('#durationSubmit').on('click', getDurationTime)
