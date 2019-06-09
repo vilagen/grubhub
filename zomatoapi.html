@@ -61,6 +61,13 @@
         </div>
     </div>
 
+    <div class = 'row'>
+        <div class = 'col-sm-12'>
+            <div id = 'map'></div>
+        </div>
+    </div>
+
+
 
 
 
@@ -150,18 +157,14 @@
     })
   })
 
+  var gMap;
+  function initMap() {
+      map = new google.Map(document.getElementbyId('Map'), {
+          
+      })
+  }
     
 </script>
     
 </body>
 </html>
-
-<!-- $.ajax({
-    method: "GET",
-    crossDomain: true,
-    url: queryURL,
-    dataType: "json",
-    async: true,
-    headers: {
-    "user-key": "c837c692050384b3446ac7955ad2641b"
-    }, -->

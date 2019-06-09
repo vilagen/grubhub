@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GRUB WIZZ - FOOD FIGHT!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="rpg.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <a id="top"></a>
+    <header>
+        <img src="assets/images/Fight_Club.jpg">
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-12 text-center">
+                <h3 class="d-inline-block pl-5 pr-5 js_instructions"></h3>
+            </div>
+        </div>
+        <div class="row">
+            <section id="gameBoard" class="col col-sm-12">
+                <div class="row text-center">
+                    <section class="col col-sm-2">
+                    </section>
+                    <section id="challenger" class="col col-md-3">
+                    </section>
+                    <section id="battleControls" class="col col-md-2  text-center">
+                        <button id="btnAttack" class="btn btn-lg btn-danger">ATTACK</button>
+                       
+                        <p id="report1" class="text-white">
+                        </p>
+                        <p id="report2" class="text-white">
+                        </p>
+                        <button id="btnReset" class="btn btn-lg btn-info">RESET</button>
+                    </section>
+                    <section id="defender" class="col col-md-3">
+                    </section>
+                    <section class="col col-sm-2">
+                    </section>
+                </div>
+            </section>
+            </section>
+        </div>
+        <div id="defendersHeaderRow" class="row display_none">
+            <div class="col col-sm-12 text-center text-white"><h3 id="defendersHeader" class="bg-dark p-4 d-inline-block pl-5 pr-5">Opponents</h3></div>
+        </div>
+        <div id="challengers" class="row p-3">
+          
+        </div>
+    </div>
+    <script src="assets/javascript/rpg.js"></script>
+</body>
+</html>
