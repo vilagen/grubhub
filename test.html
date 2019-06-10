@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- jQuery Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+    <script>
+
+        // let queryURL = ""
+
+        // $.ajax({
+
+        //     //crossDomain: true,
+        //     url: "https://crossorigin.me/https://api.yelp.com/v3/businesses/search?limit=2&location=charlotte&term=restaurants?accessToken=RIf773dTtSTvoajMtHK5lcsYUhY-dwm11U5if47hoUrUoW0wS9o4kVimnHug_bXkWjT7rU_YPBxNt_q88mtyf_ADryXLLgyYAGaEuwvkkeKBFklZUmYCgYavqcr3XHYx",
+        //     method: "POST",
+        //     headers: {
+        //         "X-RapidAPI-Key": "3e44cb6b97mshb262f92c5827964p13ae5bjsn57072c0a1f1f"
+        //         // Authorization: "Bearer  RIf773dTtSTvoajMtHK5lcsYUhY-dwm11U5if47hoUrUoW0wS9o4kVimnHug_bXkWjT7rU_YPBxNt_q88mtyf_ADryXLLgyYAGaEuwvkkeKBFklZUmYCgYavqcr3XHYx"
+        //         //,
+        //         //"Access-Control-Allow-Origin": "*"
+        //     }
+
+
+
+        // }).then(function (response) {
+        //     console.log(response)
+        // })
+
+         $.ajax({
+
+            //crossDomain: true,
+            url: "https://ZomatoraygorodskijV1.p.rapidapi.com/getAllCategories?apiKey=e920da7569c4f29f6b0175e74f21679f",
+            method: "POST"
+            ,
+            
+            headers: {
+                // "X-RapidAPI-Host":"ZomatoraygorodskijV1.p.rapidapi.com",
+                 "X-RapidAPI-Key": "3e44cb6b97mshb262f92c5827964p13ae5bjsn57072c0a1f1f"
+                // "Content-Type": "application/x-www-form-urlencoded"
+
+
+            }//,
+            //beforeSend:{ "apiKey":"e920da7569c4f29f6b0175e74f21679f"}
+        //     //rapidAPI:3e44cb6b97mshb262f92c5827964p13ae5bjsn57072c0a1f1f
+
+
+
+        }).then(function (response) {
+            console.log(response)
+        })
+
+
+        //ORIGINAL DAVE
+        // $.ajax({
+        //     url: queryURL,
+        //     dataType: 'json',
+        //     async: true,
+        //     beforeSend: function (xhr) {
+        //         xhr.setRequestHeader('user-key',
+        //             'c837c692050384b3446ac7955ad2641b');
+        //     },  // This inserts the api key into the HTTP header
+        //     success: function (response) {
+        //         console.log(response.restaurants[0].restaurant)
+        //         console.log(response.restaurants[0].restaurant.average_cost_for_two)
+        //         console.log(response.restaurants[0].restaurant.cuisines)
+        //     }
+
+
+        // Modified Dave
+        // var queryURL = "https://ZomatoraygorodskijV1.p.rapidapi.com/getAllCategories"
+
+        // $.ajax({
+        //     url: queryURL,
+        //     method:"POST",
+        //     dataType: 'json',
+        //     async: true,
+        //     beforeSend: function (xhr) {
+        //         xhr.setRequestHeader('user-key',
+        //             'e920da7569c4f29f6b0175e74f21679f');
+        //         xhr.setRequestHeader('X-RapidAPI-Key', '3e44cb6b97mshb262f92c5827964p13ae5bjsn57072c0a1f1f');
+        //     },  // This inserts the api key into the HTTP header
+        //     success: function (response) {
+        //         //console.log(response.restaurants[0].restaurant)
+        //         //console.log(response.restaurants[0].restaurant.average_cost_for_two)
+        //         //console.log(response.restaurants[0].restaurant.cuisines)
+        //         console.log(response)
+        //     }})
+
+
+        // curl -X GET --header "Accept: application/json" --header "user-key: e920da7569c4f29f6b0175e74f21679f" "https://developers.zomato.com/api/v2.1/categories"
+        
+        
+
+        //Try this url
+        $.ajax({
+            url: "https://developers.zomato.com/api/v2.1/categories",
+            method: "GET",
+            headers: {"user-key":"e920da7569c4f29f6b0175e74f21679f"},
+            //dataType: 'json',
+            //async: true,
+            // beforeSend: function (xhr) {
+            //     xhr.setRequestHeader('user-key',
+            //         'e920da7569c4f29f6b0175e74f21679f');
+            // },  // This inserts the api key into the HTTP header
+            success: function (response) {
+                console.log("Here comes api 2")
+                console.log(response)
+              
+            }})
+
+    </script>
+</body>
+
+</html>
