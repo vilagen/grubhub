@@ -83,11 +83,13 @@ function zomato_getCuisines_byCityID(z_cityId) {
     })
 
 }
+
+var arrRestaurants = []
+
 function zomato_getRestaurantsList(cuisines, user_latitude,user_longitude) {
 
     let userLocation = user_latitude + "," + user_longitude;
     let URL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + z_cityId + "&entity_type=city&count=5&cuisines=" + cuisines;
-    let arrRestaurants = [];
 
     $.ajax({
         url: URL,
