@@ -19,48 +19,47 @@
 <div class = 'container'>
 
 <div class = 'row'>
-    <div class = 'col-sm-6'>
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">City</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Charlotte</a>
-                <a class="dropdown-item" href="#">Matthews</a>
-                <a class="dropdown-item" href="#">Plaza Midwood</a>
-            </div>           
+  <div class = 'col-sm-6'>
+    <form>
+        <div class = 'form-group'>
+            <label for='enterCityID'>Enter City ID</label>
+            <input class = 'form-control' id = 'cityIDEntry' placeholder='Enter Address or Zip Code'>
         </div>
-    </div>
-    
+    </form>
+  </div>
 
-    <div class = 'col-sm-6'>
+  <div class = 'col-sm-6'>
+    <form>
+        <div class = 'form-group'>
+            <label for='enterCuisine'>Enter Cuisine</label>
+            <input class = 'form-control' id = 'cuisineEntry' placeholder='Enter Type of Food'>
+        </div>
+        <button type = 'submit' id='cuisineSubmit' class = 'btn btn-primary'>Submit</button>
+    </form>
+  </div>
+   </div>
+
+   <div class = 'row'>
+    <div class = 'col-sm-12'>
       <form>
           <div class = 'form-group'>
-              <label for='enteraddress'>Enter Address or Zip Code</label>
-              <input class = 'form-control' id = 'enterAddress' placeholder='Enter Address or Zip Code'>
+              <label for='enteraddress'>Press Button Below After Getting Address</label>
           </div>
           <button type = 'submit' id='durationSubmit' class = 'btn btn-primary'>Submit</button>
       </form>
     </div>
-
-</div>
-
-    <div class = 'row'>
-     <div class = 'col-sm-6'>
-        <button type = 'button' id = 'apibutton' class = 'btn btn-primary'>API Check</button>
-     </div>
-     <div class = 'col-sm-6'>
-        <button type = 'button' id = 'distanceButton' class = 'btn btn-primary'>Distance</button>
-     </div>
-    </div>
+  </div>
 
     <div class = 'row'>
-        <div class = 'col-sm-6'>
-          <div id = 'show-results'></div>
-        </div>
-        <div class = 'col-sm-6'>
+        <div class = 'col-sm-10'>
           <div id = 'show-duration'></div>
         </div>
+        <div class = 'col-sm-2'>
+          <div id = 'show-geolocation'></div>
+        </div>
     </div>
 
+<<<<<<< HEAD
     <div class = 'row'>
         <div class = 'col-sm-12'>
             <div id = 'map'></div>
@@ -168,3 +167,14 @@
     
 </body>
 </html>
+=======
+</div>
+
+<script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+<script src="assets/APIapp.js" type='text/javascript'></script>
+    
+</body>
+</html>
+
+
+>>>>>>> 2dc39621ed459bfce75d2ae83e6d43a192ebaa83
