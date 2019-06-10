@@ -1,4 +1,4 @@
-var x = document.getElementById('show-geolocation');
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -7,8 +7,11 @@ function getLocation() {
     }
 }
 
+var homeAddress = null
+
 // creating location of user with and pushing that to var homeAddress
 
+var x = document.getElementById('show-geolocation');
 function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude +
        "<br>Longitude: " + position.coords.longitude;
@@ -21,20 +24,22 @@ function showPosition(position) {
         console.log(homeAddress)
        }
 
-var homeAddress = null
-
+// load location when page loads.
 document.addEventListener('DOMContentLoaded', function(){
   getLocation()
 })
 
+// can use this to also show position, if we want to place that anywhere on the page.
 document.addEventListener('DOMContentLoaded', function(){ 
   showPosition()
 })
 
-var arrRestaurants = []
+
 
 function getDurationTime(arr) {    
     event.preventDefault()
+
+    console.log(homeAddress)
 
     for(var i = 0; i < arrRestaurants.length; i++){
       let restaurantlat = arrRestaurants[i].lattitude
@@ -54,10 +59,12 @@ function getDurationTime(arr) {
         console.log(response.destination_addresses[0])
         console.log(response.origin_addresses[0])
         console.log(response.rows[0].elements[0].duration.text)
+        console.log(response.rows[0].elements[0].distance.text)
 
         let origin = response.origin_addresses[0]
         let destination = response.destination_addresses[0]
         let duration = response.rows[0].elements[0].duration.text
+        let distance = response.rows[0].elements[0].distance.text
 
         let distDiv = $('<div>')
         let originDiv = $('<p>').text('Origin: ' + origin)
@@ -69,6 +76,8 @@ function getDurationTime(arr) {
      })
     }
   }
+
+// var arrRestaurants = []
 
 // get zomato array results with this function
 
@@ -141,5 +150,7 @@ function getDurationTime(arr) {
 
 
 // creating loop of duration API we found for each restuarant result to get duration
+
+
 
 //   $('#durationSubmit').on('click', getDurationTime)

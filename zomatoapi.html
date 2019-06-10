@@ -59,123 +59,14 @@
         </div>
     </div>
 
-<<<<<<< HEAD
     <div class = 'row'>
         <div class = 'col-sm-12'>
             <div id = 'map'></div>
         </div>
-    </div>
-
-
-
-
-
-
-
-        
+    </div> 
 </div>
 
 <script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
-<script type='text/javascript'>
-
-        
-        var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=303&entity_type=city&q=pub&count=10&cuisines=american"
-
-    document.getElementById('apibutton').addEventListener('click', zomatoAPI)
-    function zomatoAPI(event){
-        $.ajax({  
-    url: queryURL,
-    dataType: 'json',
-    async: true,
-    beforeSend: function(xhr){xhr.setRequestHeader('user-key', 
-    'c837c692050384b3446ac7955ad2641b');},  // This inserts the api key into the HTTP header
-    success: function(response){
-    console.log(response.restaurants[0].restaurant) 
-    console.log(response.restaurants[0].restaurant.average_cost_for_two) 
-    console.log(response.restaurants[0].restaurant.cuisines) 
-
-    let restaurants = response.restaurants
-
-    for (var i = 0; i < restaurants.length; i++){
-        let results = restaurants[i].restaurant
-        let showDiv = $('<div class>')
-        let averagefor2 = $('<p>').text('Average for two: ' + results.average_cost_for_two)
-        let cuisines = $('<p>').text('Cuisines: ' + results.cuisines)
-        let location = $('<p>').text('Address: ' + results.location.address)
-        let showImage = $('<img>')
-        let storeImage = results.photos_url
-
-        $(showImage).append(storeImage)
-        $(showDiv).append(averagefor2, cuisines, location,showImage)
-        $('#show-results').prepend(showDiv)
-
-        }
-      } 
-    })
-  }
-
-  durationArr = []
-
-  // making a function to call back duration into an array.
-
-  $('#durationSubmit').on('click', function(event){
-
-    event.preventDefault()
-
-    let homeAddress = $('#enterAddress').val().trim()
-    console.log(homeAddress)
-
-    var queryURL2 = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=|' + homeAddress + 
-                    '&destinations=3120+N+Davidson+Street+Charlotte&key=AIzaSyAwprJVRaKbbUc19bvkqHN_8ICjtUSVAJg'
-
-    $.ajax({
-    url: queryURL2,
-    dataType: 'json',
-    method: 'GET'
-    }).then(function(response){
-        console.log(response)
-        console.log(response.destination_addresses[0])
-        console.log(response.origin_addresses[0])
-        console.log(response.rows[0].elements[0].duration.text)
-
-        let origin = response.origin_addresses[0]
-        let destination = response.destination_addresses[0]
-        let duration = response.rows[0].elements[0].duration.text
-
-        let distDiv = $('<div>')
-        let originDiv = $('<p>').text('Origin: ' + origin)
-        let destDiv = $('<p>').text('Destination: ' + destination)
-        let duraDiv = $('<p>').text('Duration: ' + duration)
-        
-        $(distDiv).append(originDiv, destDiv, duraDiv)
-        $('#show-duration').append(distDiv)
-
-        durationArr.push(duration)
-        console.log(durationArr)
-        
-    })
-  })
-
-  var gMap;
-  function initMap() {
-      map = new google.Map(document.getElementbyId('Map'), {
-          
-      })
-  }
-    
-</script>
-    
+<script src="assets/javascript/APIapp.js" type='text/javascript'></script>
 </body>
 </html>
-=======
-</div>
-
-<script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
-<script src="assets/APIapp.js" type='text/javascript'></script>
-<script src="assets/javascript/zomato.js" type='text/javascript'></script>
-    
-</body>
-</html>
-
-
->>>>>>> 2dc39621ed459bfce75d2ae83e6d43a192ebaa83
