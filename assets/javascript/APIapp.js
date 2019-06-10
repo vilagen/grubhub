@@ -11,10 +11,7 @@ var homeAddress = null
 
 // creating location of user with and pushing that to var homeAddress
 
-var x = document.getElementById('show-geolocation');
 function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-       "<br>Longitude: " + position.coords.longitude;
         var lat = position.coords.latitude
         var long = position.coords.longitude
         homeAddress = lat + ', ' + long
@@ -84,9 +81,6 @@ function getDurationTime(arr) {
 // function zomato_getRestaurantsList(city, food) {
 
 // event.preventDefault()
-
-// let z_cityId = $('#cityIDEntry').val().trim()
-// let cuisines = $('#cuisineEntry').val().trim()
 
 // console.log(z_cityId)
 // console.log(cuisines)
