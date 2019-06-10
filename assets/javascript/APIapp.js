@@ -7,8 +7,6 @@ function getLocation() {
     }
 }
 
-var homeAddress = null
-
 // creating location of user with and pushing that to var homeAddress
 
 function showPosition(position) {
@@ -23,6 +21,8 @@ function showPosition(position) {
         console.log(homeAddress)
        }
 
+var homeAddress = null
+
 document.addEventListener('DOMContentLoaded', function(){
   getLocation()
 })
@@ -31,12 +31,14 @@ document.addEventListener('DOMContentLoaded', function(){
   showPosition()
 })
 
+<<<<<<< HEAD:assets/javascript/APIapp.js
 var arrRestaurants = []
+=======
+// creating loop of duration API we found for each restuarant result to get duration
+>>>>>>> 29fa227faa2ef2060085819ab3b199b69e67eb73:assets/APIapp.js
 
 function getDurationTime(arr) {    
     event.preventDefault()
-
-    console.log(homeAddress)
 
     for(var i = 0; i < arrRestaurants.length; i++){
       let restaurantlat = arrRestaurants[i].lattitude
