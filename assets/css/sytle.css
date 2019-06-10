@@ -1,0 +1,23 @@
+.jumbotron {
+    background-image: url("/Users/jbmaness/Desktop/html play folder/restaurant.jpg");
+     
+}
+
+body {
+    background-image: url("/Users/jbmaness/Desktop")
+}
+/* main styles will go here */
+#pageFooter {
+    border-top: 2px solid brown;
+}
+
+@media screen and (max-width:668px) {
+    ul {
+        padding-left: 1px;
+    }
+
+    .display-5 {
+        font-size: 10px;
+    }
+
+}
