@@ -1,0 +1,54 @@
+.jumbotron {
+    background-image: url("../assets/images/restaurant.jpg");
+
+}
+h1 {
+    font-size:40px;
+    font-weight: bold;
+    font-family: 'Permanent Marker',
+    cursive;
+}
+ ul {
+    color: white;
+}
+body {
+    background-image: url("../assets/images/brown\ background.jpeg");
+    color: white;
+}
+
+/* main styles will go here */
+#pageFooter {
+    border-top: 2px solid brown;
+}
+#submitButton {
+    background-color: rgb(30, 111, 204);
+}
+
+#goBack {
+    background-color: rgb(30, 111, 204);
+}
+
+
+#pageFooter {
+   background-image: url("../assets/images/restaurant.jpg");
+
+}
+
+ul {
+    color: white;
+}
+
+.btn {
+    background-color: rgba(61, 26, 26, 0.74);
+    color: rgb(30, 111, 204);
+}
+@media screen and (max-width:668px) {
+    ul {
+        padding-left: 1px;
+    }
+
+    .display-5 {
+        font-size: 10px;
+    }
+
+}
