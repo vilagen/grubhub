@@ -1,8 +1,16 @@
+<h1>GRUB WIZ</h1>
+
+<h3>Technology</h3>
+<hr>
+<ul>
+    <li>API</li>
+    <li>Javascript</li>
+    <li>jQuery</li>
+    <li>Bootstrap</li>
+    <li>HTML/CSS</li>    
+</ul>
+
 # project1
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 
 # Student Do: GitHub Issues
 
@@ -43,7 +51,7 @@ In a dating website application...
 4. Display the closest match to the user.
 =======
 =======
->>>>>>> 2dc39621ed459bfce75d2ae83e6d43a192ebaa83
+
 I.      Target audience is hungry people that are looking for a local place to eat based on certain criteria.
 II.     Provide a simple way to get info about local restaurants.
 III.    Provide an intuitive way to search based on criteria such as location, style, cost, menu.
@@ -57,13 +65,3 @@ I.      html has input for search criteria such as style, cost, rating, name of 
 II.     html has serach button.
 III.    html has div outputs for results, pictures, maps.
 IV.     Design for mobile layout as priority. 
-
-
-
-
-
-
-<<<<<<< HEAD
->>>>>>> aecfdb90d11dc05c490c0bedb322480f3ef93fb4
-=======
->>>>>>> 2dc39621ed459bfce75d2ae83e6d43a192ebaa83
