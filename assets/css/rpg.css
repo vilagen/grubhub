@@ -1,0 +1,63 @@
+body{
+    background-color:darkcyan;
+ }
+ header{
+    background-color: black;
+    height:75px;width:100%;
+    text-align: center;
+ }
+ header img{
+    height: 75px;width:auto;
+ }
+ img{
+    height:125px;width:auto;
+ }
+ .badge{
+    background-color:#ffff99;
+    border-radius: 50%;
+    box-shadow: 0 .5rem 0rem rgba(0,0,0,.45);
+    color:black;
+    display:block;
+    font-size:20px;
+    height:35px;width:35px;
+    position: absolute;
+    top:-10px;right:-10px;
+    z-index: 10;
+ }
+ .card{
+    cursor: pointer;
+    min-width: 130px;
+    position: relative;
+ }
+ .challenger-defeated{
+    opacity: .5;
+ }
+ .display_none{
+    display: none;
+ }
+ #defendersHeader{
+    box-shadow: 10px 10px rgba(0,0,0,.45);
+    position: relative;
+    top:30px;
+    z-index: 10;
+ }
+ @media screen and (max-width: 576px){
+    .card-header{
+        padding-left:.1rem;
+        padding-right:.1rem;
+    }
+    #battleControls{
+        text-align: center;
+        margin-left:8px;
+    }
+    #gameBoard .col
+    {
+        flex-grow:0;
+        max-width: 125px;
+        padding:4px;
+    }
+    #gameBoard .col-sm-2{
+        width:0px;
+        padding:0px;
+    }
+ }

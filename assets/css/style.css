@@ -1,0 +1,61 @@
+body {
+    
+    height:100%;
+}
+footer a {
+    box-sizing: content-box;
+    min-width: 210px;
+}
+ul {
+    list-style-type: none;
+}
+.custom-select{
+    width:30%;
+}
+.display_none{
+    display: none;  
+}
+.jumbotron {
+    background-image: url("/Users/jbmaness/Desktop/html play folder/restaurant.jpg");     
+}
+.modal-backdrop
+{
+    opacity:0.4 !important;
+}
+.restImg{
+    height:200px;width:auto;
+}
+#pageFooter {
+    border-top: 2px solid brown;
+}
+#restaurants-div{
+    border:solid 1px black;
+    display:block;    
+    height:250px;
+    margin-bottom: 150px;
+    overflow-y: auto;    
+    padding:0;
+}
+@media screen and (max-width:668px) {
+    ul {
+        padding-left: 1px;
+    }
+    .custom-select{
+        width:80%;
+    }
+    .display-5 {
+        font-size: 10px;
+    }
+    #pageFooter{
+        position: relative;
+    }
+    #restaurants-div{
+        border:solid 0px black;
+        display:block;
+        font-size: 15px;       
+        height:auto;
+        margin-bottom: 150px;
+        overflow-y: auto;        
+        padding:0;    
+    }
+}

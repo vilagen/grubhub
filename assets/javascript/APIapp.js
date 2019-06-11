@@ -1,20 +1,25 @@
 var z_cityId = $('#cityIDEntry').val().trim()
 var cuisine = $('#cuisineEntry').val().trim()
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-       x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else {
+//        x.innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
 
+<<<<<<< HEAD
 var homeAddress = null
 var user_latitude = null
 var user_longitude = null
+=======
+// var homeAddress = null
+>>>>>>> 60cb997428a88ead396b953af00dda2bb8712a5c
 
-// creating location of user with and pushing that to var homeAddress
+// // creating location of user with and pushing that to var homeAddress
 
+<<<<<<< HEAD
 function showPosition(position) {
         user_latitude = position.coords.latitude
         user_longitude = position.coords.longitude
@@ -24,16 +29,27 @@ function showPosition(position) {
         console.log(position.coords.latitude, position.coords.longitude)
         console.log(homeAddress)
        }
+=======
+// function showPosition(position) {
+//         var lat = position.coords.latitude
+//         var long = position.coords.longitude
+//         homeAddress = lat + ', ' + long
+//         console.log(lat)
+//         console.log(long)
+//         console.log(position.coords.latitude, position.coords.longitude)
+//         console.log(homeAddress)
+//        }
+>>>>>>> 60cb997428a88ead396b953af00dda2bb8712a5c
 
-// load location when page loads.
-document.addEventListener('DOMContentLoaded', function(){
-  getLocation()
-})
+// // load location when page loads.
+// document.addEventListener('DOMContentLoaded', function(){
+//   getLocation()
+// })
 
-// can use this to also show position, if we want to place that anywhere on the page.
-document.addEventListener('DOMContentLoaded', function(){ 
-  showPosition()
-})
+// // can use this to also show position, if we want to place that anywhere on the page.
+// document.addEventListener('DOMContentLoaded', function(){ 
+//   showPosition()
+// })
 
 
 
