@@ -36,27 +36,18 @@
     <div class="container text-center font-weight-bold container-fluid">
         <h1>Grub Whiz</h1>
     </div>
-
     <div container id="area" class="text-center text-white font-weight-bold container-fluid" style="padding:150px;">
 
-    <form name="searchForm" id="searchForm" method="POST" />
-    <div class="input-append">
-        <input class="span2" id="appendedInputButton" name="search_term" type="text">
-        <input class="span2" id="search_type" name="search_type" type="hidden">
-        <div class="btn-group">
-            <button class="btn dropdown-toggle" data-toggle="dropdown">
-                Search
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li onclick="$('#search_type').val('store'); $('#searchForm').submit()">Cuisine</li>
-                <li onclick="$('#search_type').val('city'); $('#searchForm').submit()">Zipcode or Address</li>
-            
-            </ul>
-        </div>
-    </div>
-    </form>
 
+        <select class="custom-select" id="selector" style="width:30%;">
+            <option selected>How would you like to search</option>
+            <option value="cuisine">Cuisine </option>
+            <option value="location">Zipcode or Address</option>
+        </select>
+        <br>
+        <button type="button" id="submitButton" class="btn btn-secondary btn-lg my-2">Submit</button>
+        <button type="button" id="goBack" class="btn btn-secondary btn-lg mx-4">Go Back</button>
+    </div>
 
 
     <!-- FOOTER START-->

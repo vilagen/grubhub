@@ -1,32 +1,35 @@
+/* styling for CSS */
 .jumbotron {
     background-image: url("../assets/images/restaurant.jpg");
 
 }
-h1 {
-    font-size:40px;
+h1  {
+    font-size:80px;
     font-weight: bold;
     font-family: 'Permanent Marker',
     cursive;
 }
  ul {
     color: white;
+    font-weight: bold;
+    font-family: 'Permanent Marker',
+    cursive;
 }
 body {
     background-image: url("../assets/images/brown\ background.jpeg");
     color: white;
 }
 
-/* main styles will go here */
+
 #pageFooter {
     border-top: 2px solid brown;
 }
-#submitButton {
+#submitButton #goBack {
     background-color: rgb(30, 111, 204);
+    color: white;
+    
 }
 
-#goBack {
-    background-color: rgb(30, 111, 204);
-}
 
 
 #pageFooter {
