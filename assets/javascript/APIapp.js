@@ -1,3 +1,5 @@
+// var z_cityId = $('#cityIDEntry').val().trim()
+// var cuisine = $('#cuisineEntry').val().trim()
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -8,15 +10,17 @@ function getLocation() {
 }
 
 var homeAddress = null
+var latitude = null
+var longitude = null
 
 // creating location of user with and pushing that to var homeAddress
 
 function showPosition(position) {
-        var lat = position.coords.latitude
-        var long = position.coords.longitude
-        homeAddress = lat + ', ' + long
-        console.log(lat)
-        console.log(long)
+        latitude = position.coords.latitude
+        longitude = position.coords.longitude
+        homeAddress = latitude + ', ' + longitude
+        console.log(latitude)
+        console.log(longitude)
         console.log(position.coords.latitude, position.coords.longitude)
         console.log(homeAddress)
        }
