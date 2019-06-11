@@ -1,5 +1,5 @@
-// var z_cityId = $('#cityIDEntry').val().trim()
-// var cuisine = $('#cuisineEntry').val().trim()
+var z_cityId = $('#cityIDEntry').val().trim()
+var cuisine = $('#cuisineEntry').val().trim()
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -10,17 +10,17 @@ function getLocation() {
 }
 
 var homeAddress = null
-var latitude = null
-var longitude = null
+var user_latitude = null
+var user_longitude = null
 
 // creating location of user with and pushing that to var homeAddress
 
 function showPosition(position) {
-        latitude = position.coords.latitude
-        longitude = position.coords.longitude
-        homeAddress = latitude + ', ' + longitude
-        console.log(latitude)
-        console.log(longitude)
+        user_latitude = position.coords.latitude
+        user_longitude = position.coords.longitude
+        homeAddress = user_latitude + ', ' + user_longitude
+        console.log(user_latitude)
+        console.log(user_longitude)
         console.log(position.coords.latitude, position.coords.longitude)
         console.log(homeAddress)
        }
@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-function getDurationTime(arr) {    
+function getDurationTime(arr) {   
+
     event.preventDefault()
 
     console.log(homeAddress)
@@ -46,7 +47,7 @@ function getDurationTime(arr) {
       let restaurantlat = arrRestaurants[i].lattitude
       let restaurantlong = arrRestaurants[i].longitude
       let restaurantGeo = restaurantlat + ', ' + restaurantlong
-      console.log(restaurantGeo)
+      let restaurantAddress = arrRestaurants[i].address
 
     var queryURL2 = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=|' + homeAddress + 
                     '&destinations=' + restaurantGeo + '&key=AIzaSyAwprJVRaKbbUc19bvkqHN_8ICjtUSVAJg'
@@ -56,11 +57,6 @@ function getDurationTime(arr) {
     dataType: 'json',
     method: 'GET'
     }).then(function(response){
-        console.log(response)
-        console.log(response.destination_addresses[0])
-        console.log(response.origin_addresses[0])
-        console.log(response.rows[0].elements[0].duration.text)
-        console.log(response.rows[0].elements[0].distance.text)
 
         let origin = response.origin_addresses[0]
         let destination = response.destination_addresses[0]
@@ -71,10 +67,53 @@ function getDurationTime(arr) {
         let originDiv = $('<p>').text('Origin: ' + origin)
         let destDiv = $('<p>').text('Destination: ' + destination)
         let duraDiv = $('<p>').text('Duration: ' + duration)
+        let mapDiv = $('<button>').text('Show Map').attr('class', 'mapID')
         
-        $(distDiv).append(originDiv, destDiv, duraDiv)
-        $('#show-duration').append(distDiv)        
+        $(distDiv).append(originDiv, destDiv, duraDiv, mapDiv)
+        $('#show-duration').append(distDiv)   
+     })
+     $(document).on('click', 'button.mapID', function(){
+      L.mapquest.key = '31FQyuhib3kxEon57rVHB1EnSyB5wogU';
+
+      var map = L.mapquest.map('map', {
+        center: [user_latitude, user_longitude],
+        layers: L.mapquest.tileLayer('map'),
+        zoom: 10
+      });
+    
+      L.marker([user_latitude, user_longitude], {
+        icon: L.mapquest.icons.marker(),
+        draggable: false
+      }).bindPopup(homeAddress).addTo(map);
+    
+      L.marker([restaurantlat, restaurantlong], {
+        icon: L.mapquest.icons.marker(),
+        draggable: false
+      }).bindPopup(restaurantAddress).addTo(map);
+      console.log(restaurantlat, restaurantlong, restaurantAddress)
      })
     }
   }
+
+// function mapIcons(){
+//   event.preventDefault()
+
+//   L.mapquest.key = '31FQyuhib3kxEon57rVHB1EnSyB5wogU';
+  
+//   var map = L.mapquest.map('map', {
+//     center: [user_latitude, user_longitude],
+//     layers: L.mapquest.tileLayer('map'),
+//     zoom: 6
+//   });
+
+//   L.marker([user_latitude, user_longitude], {
+//     icon: L.mapquest.icons.marker(),
+//     draggable: false
+//   }).bindPopup('Charlotte, NC').addTo(map);
+
+//   L.circle([restaurantlat, restaurantlong], { radius: 10000}).addTo(map);
+//   console.log('true map')
+//   console.log(restaurantlat, restaurantlong)
+//   $('#show-geolocation').prepend(map)
+// }
 
