@@ -1,5 +1,5 @@
+var arrRestaurants = [];
 var z_cityId = 0;
-
 
 function zomato_getCuisines(latitude, longitude, cityName) {
 
@@ -77,19 +77,20 @@ function zomato_getCuisines_byCityID(z_cityId) {
 
             }
 
-            console.log(arrCuisines)
+            //console.log(arrCuisines)
+            populate_cuisines(arrCuisines);
 
         }
     })
 
 }
 
-var arrRestaurants = []
+
 
 function zomato_getRestaurantsList(cuisines, user_latitude,user_longitude) {
-
+    
     let userLocation = user_latitude + "," + user_longitude;
-    let URL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + z_cityId + "&entity_type=city&count=5&cuisines=" + cuisines;
+    let URL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + z_cityId + "&entity_type=city&count=10&cuisines=" + cuisines;
 
     $.ajax({
         url: URL,

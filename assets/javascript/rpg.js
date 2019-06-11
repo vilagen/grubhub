@@ -275,7 +275,7 @@ function populateCharacterArrays(){
     arrHeros = []
     arrHeros.push(Big_Mac = new Character("Big Mac", "Big_Mac.jpg", 32, 20))
     arrHeros.push(Whopper = new Character("Whopper", "Whopper.jpg", 33, 30))
-    arrHeros.push(Wendys = new Character("Wendy's", "Wendy's.jpg", 34, 75))
+    arrHeros.push(Wendys = new Character("Wendy's", "Wendy_s.jpg", 34, 75))
     arrVillains = []
     arrVillains.push(Chalupa = new Character("Chalupa", "Chalupa.jpg", 34, 75,  [' shell smash ', " beef burn ", " sizzeling splash "]))
     arrVillains.push(Salmon_Roll = new Character("Salmon Sushi Roll", "Salmon_Sushi_Roll.jpg", 32, 20, [' rice dart ', " seaweed wrap ", " gave you Salmonella "]))

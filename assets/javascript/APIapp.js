@@ -1,35 +1,35 @@
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-       x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else {
+//        x.innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
 
-var homeAddress = null
+// var homeAddress = null
 
-// creating location of user with and pushing that to var homeAddress
+// // creating location of user with and pushing that to var homeAddress
 
-function showPosition(position) {
-        var lat = position.coords.latitude
-        var long = position.coords.longitude
-        homeAddress = lat + ', ' + long
-        console.log(lat)
-        console.log(long)
-        console.log(position.coords.latitude, position.coords.longitude)
-        console.log(homeAddress)
-       }
+// function showPosition(position) {
+//         var lat = position.coords.latitude
+//         var long = position.coords.longitude
+//         homeAddress = lat + ', ' + long
+//         console.log(lat)
+//         console.log(long)
+//         console.log(position.coords.latitude, position.coords.longitude)
+//         console.log(homeAddress)
+//        }
 
-// load location when page loads.
-document.addEventListener('DOMContentLoaded', function(){
-  getLocation()
-})
+// // load location when page loads.
+// document.addEventListener('DOMContentLoaded', function(){
+//   getLocation()
+// })
 
-// can use this to also show position, if we want to place that anywhere on the page.
-document.addEventListener('DOMContentLoaded', function(){ 
-  showPosition()
-})
+// // can use this to also show position, if we want to place that anywhere on the page.
+// document.addEventListener('DOMContentLoaded', function(){ 
+//   showPosition()
+// })
 
 
 
