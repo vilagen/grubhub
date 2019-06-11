@@ -273,13 +273,13 @@ function createCard(character, panel, position) {
 
 function populateCharacterArrays(){
     arrHeros = []
-    arrHeros.push(Big_Mac = new Character("Big Mac", "Big_Mac.jpg", 32, 20))
-    arrHeros.push(Whopper = new Character("Whopper", "Whopper.jpg", 33, 30))
-    arrHeros.push(Wendys = new Character("Wendy's", "Wendy_s.jpg", 34, 75))
+    arrHeros.push(Big_Mac = new Character("Big Mac", "big_mac.jpg", 32, 20))
+    arrHeros.push(Whopper = new Character("Whopper", "whopper.jpg", 33, 30))
+    arrHeros.push(Wendys = new Character("Wendy's", "wendy_s.jpg", 34, 75))
     arrVillains = []
-    arrVillains.push(Chalupa = new Character("Chalupa", "Chalupa.jpg", 34, 75,  [' shell smash ', " beef burn ", " sizzeling splash "]))
-    arrVillains.push(Salmon_Roll = new Character("Salmon Sushi Roll", "Salmon_Sushi_Roll.jpg", 32, 20, [' rice dart ', " seaweed wrap ", " gave you Salmonella "]))
-    arrVillains.push(Chow_Mein = new Character("Chow Mein", "Chow_Mein.jpg", 33, 30,  [' noodle whip ', " noodle noose ", " poisoned noodle soup "]))
+    arrVillains.push(Chalupa = new Character("Chalupa", "chalupa.jpg", 34, 75,  [' shell smash ', " beef burn ", " sizzeling splash "]))
+    arrVillains.push(Salmon_Roll = new Character("Salmon Sushi Roll", "salmon_sushi_roll.jpg", 32, 20, [' rice dart ', " seaweed wrap ", " gave you Salmonella "]))
+    arrVillains.push(Chow_Mein = new Character("Chow Mein", "chow_mein.jpg", 33, 30,  [' noodle whip ', " noodle noose ", " poisoned noodle soup "]))
 }
 
 function populateDefenders(arrDefenders) {
