@@ -1,5 +1,8 @@
 <h1>GRUB WIZ</h1>
 
+<p>Try online at:</p>
+https://vilagen.github.io/project1/
+
 <h3>Technology</h3>
 <hr>
 <ul>
