@@ -94,26 +94,3 @@ function getDurationTime(arr) {
      })
     }
   }
-
-// function mapIcons(){
-//   event.preventDefault()
-
-//   L.mapquest.key = '31FQyuhib3kxEon57rVHB1EnSyB5wogU';
-  
-//   var map = L.mapquest.map('map', {
-//     center: [user_latitude, user_longitude],
-//     layers: L.mapquest.tileLayer('map'),
-//     zoom: 6
-//   });
-
-//   L.marker([user_latitude, user_longitude], {
-//     icon: L.mapquest.icons.marker(),
-//     draggable: false
-//   }).bindPopup('Charlotte, NC').addTo(map);
-
-//   L.circle([restaurantlat, restaurantlong], { radius: 10000}).addTo(map);
-//   console.log('true map')
-//   console.log(restaurantlat, restaurantlong)
-//   $('#show-geolocation').prepend(map)
-// }
-
