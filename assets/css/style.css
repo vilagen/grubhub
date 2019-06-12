@@ -1,12 +1,36 @@
 body {
-    
+    background-image: url("../images/brown\ background.jpeg");
+    color: white;
     height:100%;
 }
+
+#submit-btn {
+     background-color: rgb(30, 111, 204);
+     color: white;
+}
+h1 {
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Permanent Marker',
+        cursive;
+}
 footer a {
+    
     box-sizing: content-box;
     min-width: 210px;
 }
+
+.btn {
+    background-color: rgb(30, 111, 204);
+    color: white;
+}
+
+.table {
+    background-color: rgb(30, 111, 204);
+    color: white;
+}
 ul {
+    color: white;
     list-style-type: none;
 }
 .custom-select{
@@ -16,7 +40,8 @@ ul {
     display: none;  
 }
 .jumbotron {
-    background-image: url("/Users/jbmaness/Desktop/html play folder/restaurant.jpg");     
+    background-image: url("../images/restaurant.jpg");     
+    border-bottom: 2px solid white;
 }
 .modal-backdrop
 {
@@ -26,7 +51,8 @@ ul {
     height:200px;width:auto;
 }
 #pageFooter {
-    border-top: 2px solid brown;
+    background-image: url("../images/restaurant.jpg");
+    border-top: 2px solid white;
 }
 #restaurants-div{
     border:solid 1px black;
@@ -43,6 +69,35 @@ ul {
     width: 300px;
 }
 /*  */
+
+/* Small devices (portrait tablets and large phones, 640px) */
+@media only screen and (max-width: 640px) {
+    .jumbotron {
+        position: static;
+
+    }
+
+    #area {
+        width: 100%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px ) */
+@media only screen and (max-width: 768px) {
+
+    #area {
+        width: 100%;
+    }
+}
+
+/* Large devices (laptops/desktops, 980px) */
+@media only screen and (max-width: 980px) {
+
+    #area {
+        width: 100%;
+    }
+
+}
 
 @media screen and (max-width:668px) {
     ul {
