@@ -1,7 +1,28 @@
 /* styling for CSS */
+body {
+background-image: url("../assets/images/brown\ background.jpeg");
+color: white;
+    height: 100%;
+}
+
+footer a {
+    box-sizing: content-box;
+    min-width: 210px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.custom-select {
+    width: 30%;
+}
+
+.display_none {
+    display: none;
+}
 .jumbotron {
     background-image: url("../assets/images/restaurant.jpg");
-
 }
 h1  {
     font-size:80px;
@@ -24,12 +45,11 @@ body {
 #pageFooter {
     border-top: 2px solid brown;
 }
-#submitButton #goBack {
+#submitButton {
     background-color: rgb(30, 111, 204);
     color: white;
     
 }
-
 
 
 #pageFooter {
@@ -50,8 +70,33 @@ ul {
         padding-left: 1px;
     }
 
+    .custom-select {
+        width: 80%;
+    }
+
     .display-5 {
         font-size: 10px;
     }
 
+    #pageFooter {
+        position: relative;
+    }
+
+    #restaurants-div {
+        border: solid 0px black;
+        display: block;
+        font-size: 15px;
+        height: auto;
+        margin-bottom: 150px;
+        overflow-y: auto;
+        padding: 0;
+    }
 }
+
+/*  */
+#map {
+    height: 300px;
+    width: 300px;
+}
+
+/*  */
