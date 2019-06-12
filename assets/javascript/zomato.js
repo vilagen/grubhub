@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-// var z_cityId = 0;
-=======
 var arrRestaurants = [];
 var z_cityId = 0;
->>>>>>> 60cb997428a88ead396b953af00dda2bb8712a5c
 
 function zomato_getCuisines(latitude, longitude, cityName) {
 
@@ -90,15 +86,6 @@ function zomato_getCuisines_byCityID(z_cityId) {
 }
 
 
-<<<<<<< HEAD
-function zomato_getRestaurantsList(z_cityId, cuisines) {
-
-    event.preventDefault()
-
-    var z_cityId = $('#cityIDEntry').val().trim()
-    var cuisines = $('#cuisineEntry').val().trim()
-=======
->>>>>>> 60cb997428a88ead396b953af00dda2bb8712a5c
 
 function zomato_getRestaurantsList(cuisines, user_latitude,user_longitude) {
     
