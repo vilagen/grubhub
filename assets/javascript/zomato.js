@@ -141,6 +141,9 @@ function zomato_getReviews(restaurant_id){
         }
     })
 }
+
+$('#cuisineSubmit').on('click', zomato_getRestaurantsList)
+
 //Prototype cuisine
 function cuisine(id, name) {
 
@@ -163,3 +166,5 @@ function restaurant(id, name, photo_url, address, address_city, address_zipcode,
     this.price_range = price_range,
     this.durationTime   = "0" 
 }
+
+$('#cuisineSubmit').on('click', zomato_getRestaurantsList)
