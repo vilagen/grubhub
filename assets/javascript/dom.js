@@ -40,6 +40,11 @@ debugger
     zoom: 8
   });
 
+  L.marker([userLat, userLon], {
+    icon: L.mapquest.icons.marker(),
+    draggable: false
+  }).bindPopup(userLat + '' + userLon).addTo(map);
+
   L.marker([lat, long], {
     icon: L.mapquest.icons.marker(),
     draggable: false
