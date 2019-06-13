@@ -1,33 +1,22 @@
 body {
-    background-image: url("../images/brown\ background.jpeg");
+    background-color:black;
+    background-image: url("/assets/images/Restaurant.jpg");
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
     color: white;
-    height:100%;
-}
-
-#submit-btn {
-     background-color: rgb(30, 111, 204);
-     color: white;
-}
-h1 {
-    font-size: 80px;
-    font-weight: bold;
-    font-family: 'Permanent Marker',
-        cursive;
+    height:100%;    
 }
 footer a {
     
     box-sizing: content-box;
     min-width: 210px;
 }
-
-.btn {
-    background-color: rgb(30, 111, 204);
-    color: white;
-}
-
-.table {
-    background-color: rgb(30, 111, 204);
-    color: white;
+h1 {
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Permanent Marker',
+        cursive;
 }
 ul {
     color: white;
@@ -36,70 +25,58 @@ ul {
 .custom-select{
     width:30%;
 }
-.display_none{
-    display: none;  
-}
-.jumbotron {
-    background-image: url("../images/restaurant.jpg");     
-    border-bottom: 2px solid white;
-}
 .modal-backdrop
 {
-    opacity:0.4 !important;
+    opacity:0.7 !important;
 }
 .restImg{
-    height:200px;width:auto;
+    
+    height:auto;width:250px;
+    margin-bottom: 10px;
+    margin-right:5px;
 }
-#pageFooter {
-    background-image: url("../images/restaurant.jpg");
+.table {
+    background-color: rgb(30, 111, 204);
+    color: white;
+}
+#area {
+    width: 100%;
+}
+#map{
+    display: inline-block;
+    float:right;
+    height: 250px;
+    width: 250px;    
+}
+#pageFooter {   
     border-top: 2px solid white;
 }
 #restaurants-div{
-    border:solid 1px black;
+    /*border:solid 1px black;*/
     display:block;    
     height:250px;
-    margin-bottom: 150px;
+    margin-bottom: 50px;
     overflow-y: auto;    
     padding:0;
 }
-
-/*  */
-#map{
-    height: 300px;
-    width: 300px;
+#restaurant-div ul{
+    padding: 0px;
+    color:black;
 }
-/*  */
-
-/* Small devices (portrait tablets and large phones, 640px) */
-@media only screen and (max-width: 640px) {
-    .jumbotron {
-        position: static;
-
-    }
-
-    #area {
-        width: 100%;
+#restaurants-div.display_none{
+    display: none;  
+}
+@media only screen and (max-width: 530px) {
+    #pageFooter{
+        position: relative;
     }
 }
-
-/* Medium devices (landscape tablets, 768px ) */
-@media only screen and (max-width: 768px) {
-
-    #area {
-        width: 100%;
+@media only screen and (max-width: 668px) and (orientation: landscape) {
+    #pageFooter{
+        position: relative;
     }
 }
-
-/* Large devices (laptops/desktops, 980px) */
-@media only screen and (max-width: 980px) {
-
-    #area {
-        width: 100%;
-    }
-
-}
-
-@media screen and (max-width:668px) {
+@media screen and (max-width:1054px) {
     ul {
         padding-left: 1px;
     }
@@ -109,9 +86,7 @@ ul {
     .display-5 {
         font-size: 10px;
     }
-    #pageFooter{
-        position: relative;
-    }
+    
     #restaurants-div{
         border:solid 0px black;
         display:block;
