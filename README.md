@@ -54,17 +54,21 @@ In a dating website application...
 4. Display the closest match to the user.
 =======
 =======
-
-I.      Target audience is hungry people that are looking for a local place to eat based on certain criteria.
-II.     Provide a simple way to get info about local restaurants.
-III.    Provide an intuitive way to search based on criteria such as location, style, cost, menu.
-IV.     a. User wants easy way to lookup local restaurant.
-        b. User wants to specify type of restaurant.
-        c. User wants some user basic review info.
+<ol>
+    <li>Target audience is hungry people that are looking for a local place to eat based on certain criteria.</li>
+    <li>Provide a simple way to get info about local restaurants.</li>
+    <li>Provide an intuitive way to search based on criteria such as location, style, cost, menu.</li>
+    <li>User wants easy way to lookup local restaurant.</li>
+    <li>User wants to specify type of restaurant.</li>
+    <li>User wants some user basic review info.</li>
+</ol>
   
 # Acceptance Criteria
-I.      html has input for search criteria such as style, cost, rating, name of restaurant.
-        a.  This would be via toggle(s) based on what user wants to search.
-II.     html has serach button.
-III.    html has div outputs for results, pictures, maps.
-IV.     Design for mobile layout as priority. 
+<ol>
+    <li>html has input for search criteria such as style, cost, rating, name of restaurant.</li>
+    <li>This would be via toggle(s) based on what user wants to search.</li>
+    <li>html has serach button.</li>
+    <li>html has div outputs for results, pictures, maps.</li>
+    <li>Design for mobile layout as priority. </li>
+</ol>
+
