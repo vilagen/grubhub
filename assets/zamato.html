@@ -1,54 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
+    <title>Grub Wiz</title>
+
+    <!-- jQuery Reference-->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <!-- BOOTSTRAP REFERENCES -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+
+    <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
-    <link rel="stylesheet" href="../assets/style.css">
+    <!--MAP QUEST REFERENCE-->
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
 
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
-    <title>Grub Wiz</title>
 
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+
+</head>
+
+<body>
     <div class="jumbotron jumbotron-fluid">
 
     </div>
-</head>
-
-
-
-<body>
 
     <div class="container text-center font-weight-bold container-fluid">
         <h1>Grub Whiz</h1>
     </div>
-    <div container id="area" class="text-center text-white font-weight-bold container-fluid" style="padding:150px;">
+
+    <div container id="area" class="text-center text-white font-weight-bold container-fluid" style="padding:50px;">
 
 
-        <select class="custom-select" id="selector" style="width:30%;">
+        <!--   <select class="custom-select" id="selector" style="width:30%;">
             <option selected>How would you like to search</option>
             <option value="cuisine">Cuisine </option>
+            <option value="rating">Ratings</option>
             <option value="location">Zipcode or Address</option>
+        </select>-->
+        <label class="text-dark">Pick Your Flavor</label><br>
+        <select class="custom-select" id="cuisine-sel">
         </select>
         <br>
-        <button type="button" id="submitButton" class="btn btn-secondary btn-lg my-2">Submit</button>
-        <button type="button" id="goBack" class="btn btn-secondary btn-lg mx-4">Go Back</button>
+        <button type="button" id="submit-btn" class="btn btn-secondary btn-lg my-2 mb-5">Submit</button>
+        <!-- <button type="button" id="goBack" class="btn btn-secondary btn-lg mx-4">Go Back</button>-->
+
+        <div id="restaurants-div">
+            <table id="restaurants-table" class="table table-hover text-left">
+
+            </table>
+        </div>
+
     </div>
 
+    <!-- MODAL -->
+    <div class="modal" id="results-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="results-h" class="modal-title"></h5>
+                </div>
+                <div id="restaurant-div" class="text-dark list-group">
+                    <ul id="restaurant-ul">
+
+
+                    </ul>
+
+                    <a href="rpg-game.html" class="btn btn-info" target="_blank">WAITING FOR A TABLE? PLAY FOOD
+                        FIGHT!</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL END -->
 
     <!-- FOOTER START-->
     <footer id="pageFooter" class="fixed-bottom bg-dark text-center text-muted">
@@ -69,23 +110,22 @@
         </ul>
 
 
-        <a href="https://github.com/vtchris/" target="_blank" class="btn btn-secondary mb-3 mr-4"
-            ><span
+        <a href="https://github.com/vtchris/" target="_blank" class="btn btn-secondary mb-3 mr-4"><span
                 class="fa fa-address-card pr-2"></span>Portfolio: Chris Ross</a>
 
-        <a href="https://github.com/jbjrock" target="_blank" class="btn btn-secondary mb-3 mr-4"
-            ><span
+        <a href="https://github.com/jbjrock" target="_blank" class="btn btn-secondary mb-3 mr-4"><span
                 class="fa fa-address-card pr-2"></span>Portfolio: Jarvis Maness</a>
 
-        <a href="https://github.com/vilagen" target="_blank" class="btn btn-secondary mb-3 mr-4"
-            ><span
+        <a href="https://github.com/vilagen" target="_blank" class="btn btn-secondary mb-3 mr-4"><span
                 class="fa fa-address-card pr-2"></span>Portfolio: David Hart</a>
 
 
-        <a href="https://github.com/Jrchild13" target="_blank" class="btn btn-secondary mb-3 mr-4"
-            ><span
+        <a href="https://github.com/Jrchild13" target="_blank" class="btn btn-secondary mb-3 mr-4"><span
                 class="fa fa-address-card pr-2"></span>Portfolio: Joshua Chidress</a>
 
     </footer>
-
     <!-- FOOTER END-->
+
+    <script src="assets/javascript/APIapp_1.js"></script>
+    <script src="assets/javascript/zomato.js"></script>
+    <script src="assets/javascript/dom.js"></script>
