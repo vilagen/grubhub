@@ -8,6 +8,7 @@ var $submit = $("#submit-btn");
 var $retaurantsTable = $("#restaurants-table");
 var $restaurantUL = $("#restaurant-ul")
 var $restaurantDiv = $("#restaurant-div");
+var $restaurantsDiv = $("#restaurants-div");
 var $modal = $("#results-modal");
 var $resultsHeader = $("#results-h");
 
@@ -27,17 +28,13 @@ function showPosition(position) {
   console.log(userLat + " " + userLon)
   zomato_getCuisines(userLat, userLon, "")
 }
-
-///////////////////////////////////////////
 function getMapIcons(lat, long, restName) {
   L.mapquest.key = '31FQyuhib3kxEon57rVHB1EnSyB5wogU';
 
-debugger
-
   var map = L.mapquest.map('map', {
-    center: [userLat, userLon],
+    center: [lat, long],
     layers: L.mapquest.tileLayer('map'),
-    zoom: 8
+    zoom: 15
   });
 
   L.marker([userLat, userLon], {
@@ -49,8 +46,8 @@ debugger
     icon: L.mapquest.icons.marker(),
     draggable: false
   }).bindPopup(restName).addTo(map);
+  
 }
-///////////////////////////////////////////
 
 function populate_cuisines(array) {
 
@@ -61,6 +58,8 @@ function populate_cuisines(array) {
     $cuisinesList.append($option);
   }
 
+  $("#cuisine-sel option[value='-']").remove();
+  
 }
 $submit.on("click", function () {
   arrRestaurants = [];
@@ -70,7 +69,7 @@ $submit.on("click", function () {
 function display_restaurants(array) {
 
   $retaurantsTable.empty();
-
+debugger
   //console.log("Sorting Now")   
   var arrSorted = array.sort((a, b) => (a.kilometers > b.kilometers) ? 1 : -1)
 
@@ -103,51 +102,39 @@ function display_restaurants(array) {
 
     $newRow.append($newTdName, $newTdAddress, $newTdDuration, $newTdRating);
     $retaurantsTable.append($newRow)
-    $retaurantsTable.removeClass("display_none")
+    $restaurantsDiv.removeClass("display_none")
 
   }
 
   $(".js_restaurantRow").on("click", function () {
-    //alert($(this).attr("id"))
-
     $restaurantUL.empty();
+    console.log( $(this).attr("id"))
+    debugger
     var index = arrRestaurantsWithDistances.findIndex(i => i.id === $(this).attr("id"));
-    let myRestaurant = arrRestaurants[index]
+    let myRestaurant = arrRestaurantsWithDistances[index]
 
     $resultsHeader.text(myRestaurant.name)
-    $newLiName = $("<li>");
+    $newLiRating = $("<li>");
     $newLiAddress = $("<li>");
     $newLiPhoto = $("<li>");
-    $newImg = $("<img>");
-    ///////////////////////////
-    $newLiMap = $("<li>")
+    $newImg = $("<img>");   
+    //$newLiMap = $("<li>")
     $newMap =$("<div id = 'map'>")
-    ////////////////////////////
-
-    
-
-    $newLiName.text(myRestaurant.name);
+    $newMap.css("height:150px;width:auto;")
+ 
+    $newLiRating.text("Average Rating: " + myRestaurant.aggregate_rating);
     $newImg.attr("src", myRestaurant.photo_url);
     $newImg.addClass("restImg");
-    $newLiPhoto.append($newImg);
-    $newLiAddress.text(myRestaurant.address_google);
-    ///////////////////////////////////////////////
-    $newLiMap.append($newMap)
-    myRestLat = myRestaurant.lattitude
-    myRestLong = myRestaurant.longitude
-    ////////////////////////////////////////////////
-    $restaurantUL.append($newLiPhoto, $newLiName, $newLiAddress, $newLiMap)
-    //////////////////////////////////////////////
-    getMapIcons(myRestLat, myRestLong, myRestaurant.address_google)
+    $newLiPhoto.append($newImg, $newMap);
+    $newLiAddress.text(myRestaurant.address_google);    
+    //$newLiMap.append($newMap)
+    myRestLat = myRestaurant.lattitude;
+    myRestLong = myRestaurant.longitude; 
+    $restaurantUL.append($newLiPhoto, $newLiRating, $newLiAddress);
+    //getMapIcons(myRestLat, myRestLong, myRestaurant.address_google)
 
-    $modal.modal("show")
-
-    $("#results-modal").modal("show");
-
-    //console.log(arrRestaurantsWithDistances[index])
-
+    $modal.modal("show");
+    
+    setInterval( function() { getMapIcons(myRestLat, myRestLong, myRestaurant.address_google); }, 500 );
   })
-
-  //console.log(arrSorted)
-
 }

@@ -11,6 +11,7 @@ body{
  }
  img{
     height:125px;width:auto;
+    max-width: 95%;
  }
  .badge{
     background-color:#ffff99;
