@@ -32,15 +32,12 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
-
-    </div>
-
-    <div class="container text-center font-weight-bold container-fluid">
+    
+    <div class="container text-center font-weight-bold container-fluid mt-4">
         <h1>Grub Whiz</h1>
     </div>
 
-    <div container id="area" class="text-center text-white font-weight-bold container-fluid" style="padding:50px;">
+    <div container id="area" class="text-center text-white font-weight-bold container-fluid" style="padding:5%;">
 
 
         <!--   <select class="custom-select" id="selector" style="width:30%;">
@@ -49,14 +46,15 @@
             <option value="rating">Ratings</option>
             <option value="location">Zipcode or Address</option>
         </select>-->
-        <label class="" >Pick Your Flavor</label><br>
-        <select class="custom-select" id="cuisine-sel">
+        <label>Pick Your Flavor</label><br>
+        <select class="custom-select" id="cuisine-sel" >
+                <option value="-" disabled selected>Finding Your Local Options</option>
         </select>
         <br>
-        <button type="button" id="submit-btn" class="btn btn-secondary btn-lg my-2 mb-5">Submit</button>
+        <button type="button" id="submit-btn" class="btn btn-success btn-lg my-2 mb-5">Submit</button>
         <!-- <button type="button" id="goBack" class="btn btn-secondary btn-lg mx-4">Go Back</button>-->
 
-        <div id="restaurants-div">
+        <div id="restaurants-div" class="display_none">
             <table id="restaurants-table" class="table table-hover text-left">
 
             </table>
@@ -66,8 +64,8 @@
 
     <!-- MODAL -->
     <div class="modal" id="results-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+        <div class="modal-dialog modal-dialog-centered" style="max-width:575px" role="document">
+            <div class="modal-content text-dark p-4">
                 <div class="modal-header">
                     <h5 id="results-h" class="modal-title"></h5>
                 </div>
@@ -77,10 +75,11 @@
 
                     </ul>
 
-                    <a href="rpg-game.html" class="btn btn-info" target="_blank">WAITING FOR A TABLE? PLAY FOOD
-                        FIGHT!</a>
+                    
                 </div>
                 <div class="modal-footer">
+                        <a href="rpg-game.html" class="btn btn-info" target="_blank">WAITING FOR A TABLE? PLAY FOOD
+                                FIGHT!</a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -107,18 +106,18 @@
         </ul>
 
 
-        <a href="https://github.com/vtchris/" target="_blank" class="btn btn-secondary mb-3 mr-4"><span
-                class="fa fa-address-card pr-2"></span>Portfolio: Chris Ross</a>
+        <a href="https://github.com/vtchris/" target="_blank" class="btn btn-secondary text-left mb-3 mr-4"><span
+                class="fab fa-github pr-2"></span>Portfolio: Chris Ross</a>
 
-        <a href="https://github.com/jbjrock" target="_blank" class="btn btn-secondary mb-3 mr-4"><span
-                class="fa fa-address-card pr-2"></span>Portfolio: Jarvis Maness</a>
+        <a href="https://github.com/jbjrock" target="_blank" class="btn btn-secondary text-left mb-3 mr-4"><span
+                class="fab fa-github pr-2"></span>Portfolio: Jarvis Maness</a>
 
-        <a href="https://github.com/vilagen" target="_blank" class="btn btn-secondary mb-3 mr-4"><span
-                class="fa fa-address-card pr-2"></span>Portfolio: David Hart</a>
+        <a href="https://github.com/vilagen" target="_blank" class="btn btn-secondary text-left mb-3 mr-4"><span
+                class="fab fa-github pr-2"></span>Portfolio: David Hart</a>
 
 
-        <a href="https://github.com/Jrchild13" target="_blank" class="btn btn-secondary mb-3 mr-4"><span
-                class="fa fa-address-card pr-2"></span>Portfolio: Joshua Chidress</a>
+        <a href="https://github.com/Jrchild13" target="_blank" class="btn btn-secondary text-left mb-3 mr-4"><span
+                class="fab fa-github pr-2"></span>Portfolio: Joshua Chidress</a>
 
     </footer>
     <!-- FOOTER END-->
