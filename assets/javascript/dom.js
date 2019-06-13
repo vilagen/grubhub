@@ -26,8 +26,27 @@ function showPosition(position) {
 
   console.log(userLat + " " + userLon)
   zomato_getCuisines(userLat, userLon, "")
-
 }
+
+///////////////////////////////////////////
+function getMapIcons(lat, long, restName) {
+  L.mapquest.key = '31FQyuhib3kxEon57rVHB1EnSyB5wogU';
+
+debugger
+
+  var map = L.mapquest.map('map', {
+    center: [userLat, userLon],
+    layers: L.mapquest.tileLayer('map'),
+    zoom: 8
+  });
+
+  L.marker([lat, long], {
+    icon: L.mapquest.icons.marker(),
+    draggable: false
+  }).bindPopup(restName).addTo(map);
+}
+///////////////////////////////////////////
+
 function populate_cuisines(array) {
 
   for (var i = 0; i < array.length; i++) {
@@ -95,13 +114,26 @@ function display_restaurants(array) {
     $newLiAddress = $("<li>");
     $newLiPhoto = $("<li>");
     $newImg = $("<img>");
+    ///////////////////////////
+    $newLiMap = $("<li>")
+    $newMap =$("<div id = 'map'>")
+    ////////////////////////////
+
+    
 
     $newLiName.text(myRestaurant.name);
     $newImg.attr("src", myRestaurant.photo_url);
     $newImg.addClass("restImg");
     $newLiPhoto.append($newImg);
     $newLiAddress.text(myRestaurant.address_google);
-    $restaurantUL.append($newLiPhoto, $newLiName, $newLiAddress)
+    ///////////////////////////////////////////////
+    $newLiMap.append($newMap)
+    myRestLat = myRestaurant.lattitude
+    myRestLong = myRestaurant.longitude
+    ////////////////////////////////////////////////
+    $restaurantUL.append($newLiPhoto, $newLiName, $newLiAddress, $newLiMap)
+    //////////////////////////////////////////////
+    getMapIcons(myRestLat, myRestLong, myRestaurant.address_google)
 
     $modal.modal("show")
 
