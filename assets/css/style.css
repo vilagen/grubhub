@@ -1,6 +1,6 @@
 body {
     background-color:black;
-    background-image: url("/assets/images/Restaurant.jpg");
+    background-image: url("../images/Restaurant.jpg");
     background-position: center;
     background-repeat:no-repeat;
     background-size: cover;
