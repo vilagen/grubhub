@@ -64,7 +64,7 @@ $submit.on("click", function () {
 function display_restaurants(array) {
 
   $retaurantsTable.empty();
-debugger
+
   //console.log("Sorting Now")   
   var arrSorted = array.sort((a, b) => (a.kilometers > b.kilometers) ? 1 : -1)
 
@@ -104,7 +104,7 @@ debugger
   $(".js_restaurantRow").on("click", function () {
     $restaurantUL.empty();
     console.log( $(this).attr("id"))
-    debugger
+    //debugger
     var index = arrRestaurantsWithDistances.findIndex(i => i.id === $(this).attr("id"));
     let myRestaurant = arrRestaurantsWithDistances[index]
 

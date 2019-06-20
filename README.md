@@ -13,6 +13,24 @@ https://vilagen.github.io/project1/
     <li>HTML/CSS</li>    
 </ul>
 
+<p>With this project, our instructors organized us into teams of students that haven't worked together before. The goal was to learn how to use github as a team; and to use an agile methodology to brainstorm, plan, and execute a web application within two weeks that used at least two APIs.</p>
+
+<p>Our team came up with the idea of an application that would help users find local restaurants near their location. We used APIs from Zomato, and Google, and included maps from Mapquest.</p>
+
+![](assets/images/demo/main.jpg)
+![](assets/images/demo/detail.jpg)
+
+<p>Items we identified for further, future development</p>
+<ul>
+    <li>Allow users to select non-local cities</li>
+    <li>Include phone number (Zomato charges for this)</li>
+    <li>Include recent reviews</li>
+    <li>Improve sorting by converting distances from text based kilometers, to a number</li>
+    <li>Further debugging of Food Fight game</li>
+</ul>
+
+
+<h2>Mission (Homework)</h2> 
 # project1
 
 # Student Do: GitHub Issues
