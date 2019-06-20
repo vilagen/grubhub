@@ -42,7 +42,7 @@ resetGame(arrHeros.slice(0),arrVillains.slice(0))
 
 
 function battle(challenger, defender){
-    debugger;
+    //debugger;
     //  console.log("START")
     //  console.log(challenger)
     //  console.log(defender)
